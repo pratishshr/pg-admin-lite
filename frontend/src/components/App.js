@@ -5,10 +5,23 @@
 
 import React, {Component} from 'react';
 
+//components
+import Header from './commons/header/Header';
+import Sidebar from './commons/sidebar/Sidebar';
+import SqlRunner from './sql-runner';
+
 class App extends Component {
   render() {
     return (
-      <h1>Hello World!</h1>
+      <div>
+        <Header />
+
+        <div className="row">
+          <Sidebar/>
+          <SqlRunner/>
+        </div>
+
+      </div>
     )
   }
 }

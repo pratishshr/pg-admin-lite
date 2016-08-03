@@ -5,6 +5,9 @@
 
 var webpack = require('webpack');
 
+//plugins
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080', // WebpackDevServer host and port
@@ -14,11 +17,12 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/dist',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    chunkFilename: "[id].js"
   },
   module: {
     loaders: [
-      {test: /\.css$/, loader: "style!css"},
+      {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
       {test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel-loader"]}
     ]
   },
@@ -27,5 +31,8 @@ module.exports = {
     historyApiFallback: true,
     inline: true,
     port: 8080
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin("bundle.css")
+  ]
 };
