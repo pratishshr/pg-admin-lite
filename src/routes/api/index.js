@@ -3,8 +3,8 @@
  * on 8/2/16.
  */
 
-import dbRoute from './dbRoute';
+import queryRoute from './queryRoute';
 
 export {
-  dbRoute
+  queryRoute
 }

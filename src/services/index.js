@@ -3,8 +3,8 @@
  * on 8/1/16.
  */
 
-import * as dbService from './dbService';
+import DbService from './DbService';
 
 export {
-  dbService
+  DbService
 }

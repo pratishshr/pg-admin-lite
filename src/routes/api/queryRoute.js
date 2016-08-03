@@ -10,6 +10,6 @@ import * as dbController from '../../controllers/dbController';
 
 let router = express.Router();
 
-router.get('/', dbController.list);
+router.get('/', dbController.executeQuery);
 
 export default router;

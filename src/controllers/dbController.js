@@ -3,11 +3,20 @@
  * on 8/2/16.
  */
 
-import {dbService} from '../services';
+import {DbService} from '../services';
 
-export function list(req, res) {
-  dbService.list((err, rows) => {
-    if(err)  console.log(err);
-    res.send(rows);
+export function executeQuery(req, res) {
+  let dbService = new DbService({
+    user: req.query.username || req.header('db-username'),
+    password: req.query.password || req.header('db-password'),
+    database: req.query.dbName || req.header('db-name') || 'template1',
+    port: 5432,
+    max: 10,
+    idleTimeoutMillis: 30000
   });
+  dbService.executeQuery(req.query.sql).then((rows) => {
+    res.send(rows);
+  }).catch((err) => {
+    res.send(err);
+  })
 }
