@@ -2,3 +2,26 @@
  * Author: Pratish Shrestha <pratishshrestha@lftechnology.com>
  * on 8/3/16.
  */
+
+//constants
+import actionTypeConstants from '../constants/actionTypeConstants';
+
+//libraries
+import Immutable from 'immutable';
+
+let initialState = Immutable.Map({
+  isFetching: false,
+  databases: [],
+  tables: {}
+});
+
+export default function databaseReducer(state = initialState, action) {
+  switch (action.type) {
+    case actionTypeConstants.LIST_DATABASES:
+      return state.set('databases', action.data);
+    
+    case actionTypeConstants.LIST_DB_TABLES:
+    default:
+      return state;
+  }
+}

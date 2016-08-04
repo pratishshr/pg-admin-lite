@@ -4,11 +4,20 @@
  */
 
 //assets
+require('../assets/css/font-awesome.min.css');
 require('../assets/css/style.css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import configureStore from './store/configureStore';
+import {Provider} from 'react-redux';
+
+const store = configureStore();
+
 import App from './components/App';
 
-ReactDOM.render(<App/>, document.querySelector('#app-container'));
+ReactDOM.render(  
+  <Provider store={store}>
+    <App />
+  </Provider>, document.querySelector('#app-container'));

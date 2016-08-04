@@ -6,9 +6,9 @@
 //constants
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-export function selectDatabase(selectedDatabase, tables) {
+export function selectDatabase(selectedDatabase) {
   return {
     type: actionTypeConstants.SELECT_DATABASE,
-    selectedDatabase: selectedDatabase,
+    selectedDatabase: selectedDatabase
   }
 }

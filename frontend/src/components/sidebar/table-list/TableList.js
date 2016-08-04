@@ -6,9 +6,10 @@ import React, {Component} from 'react';
 
 //components
 import Table from './Table';
+import Spinner from '../../commons/spinner/Spinner';
 
 //services
-import {databaseService} from '../../../../services/databaseService';
+import {databaseService} from '../../../services/databaseService';
 
 class TableList extends Component {
   render() {
@@ -16,11 +17,15 @@ class TableList extends Component {
     return (
       <div className="collapsible-body">
         <ul>
-          {(false) ?
+          {(props.tables.get(props.dbName)) ?
             props.tables.get(props.dbName).map((table, index) => {
               return <Table table={table} key={index}/>
             }) :
-            <Spinner />
+            <li className="center-align"><Spinner className="sidebar-spinner"/></li>
+          }
+
+          {(props.tables.get(props.dbName) && (!props.tables.get(props.dbName).length))?
+            <li className="center-align">No relations found</li>: ''
           }
         </ul>
       </div>

@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 
 //components
 import Header from './commons/header/Header';
-import Sidebar from './commons/sidebar/Sidebar';
+import Sidebar from './sidebar';
 import SqlRunner from './sql-runner';
 
 class App extends Component {

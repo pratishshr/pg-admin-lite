@@ -13,7 +13,7 @@ let initialState = Immutable.Map({
   selectedDatabase: ''
 });
 
-export default function selectedReducer(state = initialState, action) {
+export default function selectReducer(state = initialState, action) {
   switch(action.type){
     case actionTypeConstants.SELECT_DATABASE:
       return state.set('selectedDatabase', action.selectedDatabase);

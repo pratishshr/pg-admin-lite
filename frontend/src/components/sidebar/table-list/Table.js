@@ -5,12 +5,17 @@
 import React, {Component} from 'react';
 
 //services
-import {databaseService} from '../../../../services/databaseService';
+import {databaseService} from '../../../services/databaseService';
 
 class TableList extends Component {
   render() {
     return (
-          <li><a className="waves-effect" href="#!">{this.props.table.tablename}</a></li>
+          <li>
+            <a className="waves-effect">
+              <i className="fa fa-table center-align" aria-hidden="true"></i>
+              {this.props.table.tablename}
+            </a>
+          </li>
     )
   }
 }

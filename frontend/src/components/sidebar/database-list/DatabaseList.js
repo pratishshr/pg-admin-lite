@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 //components
-import TableList from './../table-list/TableList';
 import Database from './Database';
 
 class DatabaseList extends Component {

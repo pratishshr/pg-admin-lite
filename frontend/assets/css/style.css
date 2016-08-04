@@ -10,3 +10,15 @@ nav {
     margin: 20px 0;
 }
 
+.sidebar-spinner.preloader-wrapper.small {
+    width: 20px;
+    height: 20px;
+}
+
+.side-nav li>a>i {
+    margin: 0 10px 0 0;
+}
+
+.collapsible-header i {
+    font-size: 1rem;
+}

@@ -13,7 +13,7 @@ import {bindActionCreators} from 'redux';
 import DatabaseList from './database-list/DatabaseList';
 
 //actions
-import {databaseActions, tableActions} from '../../../actions';
+import {databaseActions, tableActions, selectActions} from '../../actions';
 
 class Sidebar extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className="col s12 m4 l3">
+      <div className="col s12 m2 l3">
         <ul id="slide-out" className="side-nav fixed">
           <li><h2 className="center-align">Pg-Admin</h2></li>
           <li className="no-padding">
@@ -41,13 +41,14 @@ class Sidebar extends Component {
 let mapStateToProps = (state) => {
   return {
     databases: state.databaseReducer.get('databases') || [],
-    tables: state.tableReducer.get('tables') 
+    tables: state.tableReducer.get('tables'),
+    selectedDatabase: state.selectReducer.get('selectedDatabase')
   }
 };
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(Object.assign({}, databaseActions, tableActions), dispatch)
+    actions: bindActionCreators(Object.assign({}, databaseActions, tableActions, selectActions), dispatch)
   }
 };
 

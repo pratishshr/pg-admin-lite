@@ -15,8 +15,8 @@ export function executeQuery(req, res) {
     idleTimeoutMillis: 30000
   });
   dbService.executeQuery(req.query.sql).then((rows) => {
-    res.send(rows);
+    res.json(rows);
   }).catch((err) => {
-    res.send(err);
+    res.js(err);
   })
 }
