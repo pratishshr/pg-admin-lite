@@ -17,6 +17,6 @@ export function executeQuery(req, res) {
   dbService.executeQuery(req.query.sql).then((rows) => {
     res.json(rows);
   }).catch((err) => {
-    res.js(err);
+    res.status(400).json(err);
   })
 }
