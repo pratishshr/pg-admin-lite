@@ -5,8 +5,10 @@
 
 import * as databaseService from './databaseService';
 import * as tableService from './tableService';
+import * as queryService from './queryService';
 
 export {
   databaseService,
-  tableService
+  tableService,
+  queryService
 }

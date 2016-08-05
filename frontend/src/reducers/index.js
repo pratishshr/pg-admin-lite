@@ -7,11 +7,13 @@ import {combineReducers} from 'redux';
 import databaseReducer from './databaseReducer';
 import tableReducer from './tableReducer';
 import selectReducer from './selectReducer';
+import queryReducer from './queryReducer';
 
 const rootReducer = combineReducers({
   databaseReducer,
   tableReducer,
-  selectReducer
+  selectReducer,
+  queryReducer
 });
 
 export default rootReducer; 

@@ -27,6 +27,7 @@ module.exports = {
       {test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader : 'file-loader', query: {name: 'fonts/[name].[ext]'}},
     ]
   },
+  devtool: 'eval-source-map',
   devServer: {
     hot: true,
     historyApiFallback: true,

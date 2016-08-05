@@ -24,6 +24,11 @@ class TableList extends Component {
         {props.resultSet && props.resultSet.map((row, index) => {
           return <TableRow row={row} key={index} index={index}/>
         })}
+        {props.resultSet && !props.resultSet.length &&
+          <tr>
+            <td className="center-align"colSpan={props.columns && props.columns.length}>No rows inserted.</td>
+          </tr>
+        }
         </tbody>
       </table>
     )

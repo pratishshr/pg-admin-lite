@@ -15,7 +15,7 @@ import Relations from '../relations';
 import Table from '../table';
 
 //actions
-import {tableActions} from '../../actions';
+import {tableActions, queryActions} from '../../actions';
 
 class SqlRunner extends Component {
   render() {
@@ -57,7 +57,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(Object.assign({}, tableActions), dispatch)
+    actions: bindActionCreators(Object.assign({}, tableActions, queryActions), dispatch)
   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SqlRunner);

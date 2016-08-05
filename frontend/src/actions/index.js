@@ -6,9 +6,11 @@
 import * as databaseActions from './databaseActions';
 import * as tableActions from './tableActions';
 import * as selectActions from './selectActions';
+import * as queryActions from './queryActions';
 
 export {
   databaseActions,
   tableActions,
-  selectActions
+  selectActions,
+  queryActions
 }
