@@ -42,13 +42,13 @@ export function executeQuery(query, databaseName) {
 }
 
 function _handleQueryResponse(dispatch, databaseName, response) {
-  debugger;
   switch(response.data.command) {
     case 'SELECT':
       dispatch(saveResultSet(databaseName, response.data));
       break;
 
     default:
+      dispatch(saveResultSet(databaseName, response.data));
       console.log(response.command);
   }
 }

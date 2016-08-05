@@ -13,13 +13,6 @@ class Database extends Component {
   }
 
   selectDatabase() {
-    //toggle dropdown; fetch and select database when open
-    // this.state.isOpen = !this.state.isOpen;
-    // this.setState({isOpen: this.state.isOpen});
-    // if(this.state.isOpen) {
-    //   this.props.actions.fetchTables(this.props.database.datname);
-    //   this.props.actions.selectDatabase(this.props.database.datname);
-    // }
     let props = this.props;
     if (props.selectedDatabase !== props.database.datname) {
       this.props.actions.fetchTables(this.props.database.datname);

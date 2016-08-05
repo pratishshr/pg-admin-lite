@@ -8,6 +8,9 @@ import React, {Component} from 'react';
 class SqlEditor extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isExecuteButtonEnabled: false
+    };
     this.executeQuery = this.executeQuery.bind(this);
   }
 
@@ -21,11 +24,16 @@ class SqlEditor extends Component {
       <form className="sql-editor" onSubmit={this.executeQuery}>
         <div>
           <div className="input-field col s12 z-depth-1">
-            <textarea ref="query" id="textarea1" className="materialize-textarea"></textarea>
+            <textarea ref="query" id="textarea1"
+                      className="materialize-textarea"
+                      onChange={(event)=>{this.setState({isExecuteButtonEnabled: event.target.value != ''})}}>
+            </textarea>
           </div>
-
           <div className="row">
-            <button className="execute-btn btn waves-effect waves-light right" type="submit" name="action">
+            <button className='execute-btn btn waves-effect waves-light right'
+                    disabled={!this.state.isExecuteButtonEnabled}
+                    type="submit"
+                    name="action">
               Execute
             </button>
           </div>
