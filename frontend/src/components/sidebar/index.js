@@ -41,8 +41,9 @@ class Sidebar extends Component {
 let mapStateToProps = (state) => {
   return {
     databases: state.databaseReducer.get('databases') || [],
-    tables: state.tableReducer.get('tables'),
-    selectedDatabase: state.selectReducer.get('selectedDatabase')
+    tablesByDatabase: state.tableReducer.get('tablesByDatabase'),
+    selectedDatabase: state.selectReducer.get('selectedDatabase'),
+    selectedTable: state.selectReducer.get('selectedTable')
   }
 };
 

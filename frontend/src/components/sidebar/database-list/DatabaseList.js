@@ -6,7 +6,7 @@ import Database from './Database';
 class DatabaseList extends Component {
   render() {
     return (
-      <ul className="collapsible collapsible-accordion" data-collapsible="expandable">
+      <ul className="collapsible collapsible-accordion">
         {this.props.databases.map((database, index) => {
           return (
             <Database database={database} key={index} {...this.props}/>

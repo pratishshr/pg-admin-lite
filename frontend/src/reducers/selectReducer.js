@@ -10,14 +10,25 @@ import actionTypeConstants from '../constants/actionTypeConstants';
 import Immutable from 'immutable';
 
 let initialState = Immutable.Map({
-  selectedDatabase: ''
+  selectedDatabase: '',
+  selectedTable: ''
 });
 
 export default function selectReducer(state = initialState, action) {
   switch(action.type){
     case actionTypeConstants.SELECT_DATABASE:
-      return state.set('selectedDatabase', action.selectedDatabase);
+      return state.set('selectedDatabase', action.databaseName)
+                  .set('selectedTable', '');
 
+    case actionTypeConstants.SELECT_TABLE:
+      return state.set('selectedTable', action.tableName);
+    
+    case actionTypeConstants.CLEAR_SELECTED_DATABASE:
+      return state.set('selectedDatabase', '');
+    
+    case actionTypeConstants.CLEAR_SELECTED_TABLE:
+      return state.set('selectedTable', '');
+    
     default:
       return state;
   }

@@ -17,14 +17,14 @@ class TableList extends Component {
     return (
       <div className="collapsible-body">
         <ul>
-          {(props.tables.get(props.dbName)) ?
-            props.tables.get(props.dbName).map((table, index) => {
-              return <Table table={table} key={index}/>
+          {(props.tablesByDatabase.get(props.dbName)) ?
+            props.tablesByDatabase.get(props.dbName).map((table, index) => {
+              return <Table table={table} key={index} {...props}/>
             }) :
             <li className="center-align"><Spinner className="sidebar-spinner"/></li>
           }
 
-          {(props.tables.get(props.dbName) && (!props.tables.get(props.dbName).length))?
+          {(props.tablesByDatabase.get(props.dbName) && (!props.tablesByDatabase.get(props.dbName).length))?
             <li className="center-align">No relations found</li>: ''
           }
         </ul>

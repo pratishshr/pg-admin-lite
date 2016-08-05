@@ -7,7 +7,7 @@ nav {
 }
 
 .execute-btn {
-    margin: 20px 0;
+    margin: 20px 10px 0 0;
 }
 
 .sidebar-spinner.preloader-wrapper.small {
@@ -15,10 +15,37 @@ nav {
     height: 20px;
 }
 
-.side-nav li>a>i {
+.side-nav li > a > i {
     margin: 0 10px 0 0;
 }
 
 .collapsible-header i {
     font-size: 1rem;
+}
+
+th {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.database-name {
+    margin-left: 10px;
+}
+
+.table-name {
+    margin-left: 10px;
+}
+
+.table-title {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.margin-left-10 {
+    margin-left: 10px
 }

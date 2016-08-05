@@ -29,11 +29,29 @@ export function listTables(dbName, tables) {
   }
 }
 
+export function saveResultSet(tableName, data) {
+  return {
+    type: actionTypeConstants.SAVE_RESULT_SET,
+    tableName: tableName,
+    data: data
+  }
+}
+
 //async action creators
-export function fetchTables(dbName) {
+export function fetchTables(databaseName) {
   return function(dispatch) {
-    return tableService.fetchAll(dbName).then((response) => {
-      dispatch(listTables(dbName, response.data.rows));
+    return tableService.fetchAll(databaseName).then((response) => {
+      dispatch(listTables(databaseName, response.data.rows));
     })
+  }
+}
+
+export function selectAllFromTable(databaseName, tableName) {
+  return function(dispatch) {
+    dispatch(requestTables());
+    return tableService.selectAllFromTable(databaseName, tableName).then((response) => {
+      dispatch(saveResultSet(tableName, response.data));
+      dispatch(responseTables());
+    });
   }
 }

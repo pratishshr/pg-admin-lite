@@ -11,8 +11,7 @@ import Immutable from 'immutable';
 
 let initialState = Immutable.Map({
   isFetching: false,
-  databases: [],
-  tables: {}
+  databases: []
 });
 
 export default function databaseReducer(state = initialState, action) {
