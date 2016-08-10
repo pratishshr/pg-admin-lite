@@ -11,6 +11,7 @@ import {queryService} from '../services';
 
 //actions
 import * as tableActions from './tableActions';
+import * as databaseActions from './databaseActions';
 
 export function requestExecuteQuery() {
   return {
@@ -37,18 +38,34 @@ export function executeQuery(query, databaseName) {
     return queryService.executeQuery(query, databaseName).then((response) => {
       _handleQueryResponse(dispatch, databaseName, response);
       dispatch(responseExecuteQuery());
+    }).catch((response) => {
+      Materialize.toast('ERROR: Please check the query' , 5000, 'rounded');
     });
   }
 }
 
 function _handleQueryResponse(dispatch, databaseName, response) {
   switch(response.data.command) {
+    //DDL
+    case 'CREATE':
+    case 'ALTER':
+    case 'DROP':
+      dispatch(tableActions.fetchTables(databaseName));
+      Materialize.toast('Successfully executed command ' + '"CREATE"' , 5000, 'rounded');
+      break;
+
     case 'SELECT':
       dispatch(saveResultSet(databaseName, response.data));
       break;
 
+    case 'INSERT':
+    case 'UPDATE':
+      Materialize.toast(response.data.command + ' ' + response.data.rowCount + ' ROW(s)', 5000, 'rounded');
+      break;
+
+
+
     default:
-      dispatch(saveResultSet(databaseName, response.data));
       console.log(response.command);
   }
 }

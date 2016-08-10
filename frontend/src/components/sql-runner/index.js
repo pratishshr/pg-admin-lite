@@ -19,11 +19,16 @@ import QueryResult from './query-result';
 import {tableActions, queryActions} from '../../actions';
 
 class SqlRunner extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     let props = this.props;
+
     return (
       <div className="col s12 m8 l9">
-        {/*if database is selected show queryEditor else show message */}
+        {/* if database is selected show queryEditor else show message */}
         {(props.selectedDatabase) ?
           <div className="container">
             <h5>
@@ -32,19 +37,19 @@ class SqlRunner extends Component {
             </h5>
             <SqlEditor {...props}/>
 
-            {/* show result of query only after it is executed;
-              * if 'SELECT' command then show table;
-              * else show alert */}
-            {(props.queryResponse.command === 'SELECT') ?
-              <QueryResult {...props}/>
-              :
-              <div>
-                {props.command}
-              </div>
+            {
+              /* show the result of the query with respect to the selected database */
+              (props.selectedDatabase === props.databaseNameOfQueryResult) ?
+                <QueryResult {...props}/>
+                :
+                ''
             }
 
-            {/* if table is not selected, show database relation 
-              * else show table */}
+            {
+              /* RELATIONS TABLE
+               * if table is not selected, show database relation
+               * else show table */
+            }
             {(!props.selectedTable) ?
               <Relations {...props}/>
               :
@@ -56,6 +61,7 @@ class SqlRunner extends Component {
             <h3>Select a database</h3>
           </div>
         }
+
       </div>
     )
   }
@@ -73,7 +79,8 @@ let mapStateToProps = (state) => {
     fieldsByTable: state.tableReducer.get('fieldsByTable'),
     //queryReducer
     queryResponse: state.queryReducer.get('queryResponse'),
-    isFetchingQueryResult: state.queryReducer.get('isFetching') 
+    isFetchingQueryResult: state.queryReducer.get('isFetching'),
+    databaseNameOfQueryResult: state.queryReducer.get('databaseName')
   }
 };
 

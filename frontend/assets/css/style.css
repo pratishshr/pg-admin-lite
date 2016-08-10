@@ -48,5 +48,13 @@ td {
 }
 
 .margin-left-10 {
-    margin-left: 10px
+    margin-left: 10px;
+}
+
+.valign-wrapper {
+    height: 100vh;
+}
+
+.app-color {
+    background: #326690;
 }

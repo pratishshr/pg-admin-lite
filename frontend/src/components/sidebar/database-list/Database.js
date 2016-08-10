@@ -14,6 +14,9 @@ class Database extends Component {
 
   selectDatabase() {
     let props = this.props;
+
+    // if the same database is clicked again, clear the selected state
+    // else fetch the tables and select the database
     if (props.selectedDatabase !== props.database.datname) {
       this.props.actions.fetchTables(this.props.database.datname);
       this.props.actions.selectDatabase(this.props.database.datname);

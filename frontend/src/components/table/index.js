@@ -17,7 +17,7 @@ class Table extends Component {
         <i className="fa fa-table center-align" aria-hidden="true"></i>
         <span className="table-title margin-left-10">Table: {props.selectedTable}</span>
         
-        {/* show a spinner when it is fetching any tables*/}
+        {/* show a spinner when it is fetching any tables */}
         {(!props.isFetchingTables) ?
           <TableList columns={props.fieldsByTable.get(props.selectedTable)} resultSet={props.resultSet}/>
           :
