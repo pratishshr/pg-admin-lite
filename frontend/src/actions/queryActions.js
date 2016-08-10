@@ -51,7 +51,7 @@ function _handleQueryResponse(dispatch, databaseName, response) {
     case 'ALTER':
     case 'DROP':
       dispatch(tableActions.fetchTables(databaseName));
-      Materialize.toast('Successfully executed command ' + '"CREATE"' , 5000, 'rounded');
+      Materialize.toast('Successfully executed command ' + '"' + response.data.command + '"' , 5000, 'rounded');
       break;
 
     case 'SELECT':
