@@ -7,8 +7,17 @@ import React, {Component} from 'react';
 
 class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.onSubmitForm = this.onSubmitForm.bind(this);
   }
+
+  onSubmitForm(event) {
+    event.preventDefault();
+    localStorage.setItem('db-username', this.refs.username.value);
+    localStorage.setItem('db-password', this.refs.password.value);
+    this.props.changeLoggedInStatus(true);
+  }
+
   render() {
     return (
       <div className="valign-wrapper">
@@ -20,17 +29,17 @@ class Login extends Component {
               <h4 className="center">pg-admin</h4>
               <form className="col s12" onSubmit={this.onSubmitForm}>
                 <div className="row">
-                  <div clasSName="col s12">
+                  <div className="col s12">
                     <div className="input-field col s12">
-                      <input id="username" type="text" className="validate"/>
-                      <label for="username">Username</label>
+                      <input ref="username" id="username" type="text" className="validate"/>
+                      <label htmlFor="username">Username</label>
                     </div>
                     <div className="input-field col s12">
-                      <input id="password" type="password" className="validate"/>
-                      <label for="password">Password</label>
+                      <input ref="password" id="password" type="password" className="validate"/>
+                      <label htmlFor="password">Password</label>
                     </div>
                     <div className="input-field col s12">
-                      <button className="btn waves-effect waves-light col s12 app-color" type="submit" name="action">
+                      <button className="btn waves-effect waves-light right app-color" type="submit" name="action">
                         Log In
                       </button>
                     </div>

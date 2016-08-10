@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   changeLoggedInStatus(status) {
-    this.setState({isLoggedIn: false});
+    this.setState({isLoggedIn: status});
   }
 
   render() {

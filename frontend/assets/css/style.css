@@ -56,5 +56,9 @@ td {
 }
 
 .app-color {
-    background: #326690;
+    background-color: #326690;
+}
+
+.btn.app-color:hover {
+    background-color: #2B81AF;
 }

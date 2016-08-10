@@ -12,7 +12,7 @@ class DbService {
   executeQuery(query, values = []) {
     return new Promise((resolve, reject) => {
       this.pool.connect((err, client, done) => {
-        if (err) reject(err);
+        if (err) return reject(err);
         client.query(query, values, function (err, result) {
           //call `done()` to release the client back to the pool
           done();
