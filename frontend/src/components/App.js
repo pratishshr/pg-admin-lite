@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: !!localStorage.getItem('db-username')
     };
     this.changeLoggedInStatus = this.changeLoggedInStatus.bind(this);
   }

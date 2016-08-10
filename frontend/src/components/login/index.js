@@ -13,9 +13,15 @@ class Login extends Component {
 
   onSubmitForm(event) {
     event.preventDefault();
+    //NOTE: this is just a hack, as the sidebar submenus were not working
+    //TODO: fix this issue
+    window.location.reload();
+
     localStorage.setItem('db-username', this.refs.username.value);
     localStorage.setItem('db-password', this.refs.password.value);
     this.props.changeLoggedInStatus(true);
+
+
   }
 
   render() {
