@@ -12,25 +12,27 @@ class TableList extends Component {
   render() {
     let props = this.props;
     return (
-      <table className="bordered highlight z-depth-1 responsive-table">
-        <thead>
-        <tr>
-          {props.columns && props.columns.map((column, index) => {
-            return <th key={index}>{column.name}</th>
-          })}
-        </tr>
-        </thead>
-        <tbody>
-        {props.resultSet && props.resultSet.map((row, index) => {
-          return <TableRow row={row} key={index} index={index}/>
-        })}
-        {props.resultSet && !props.resultSet.length &&
+      <div className="highlight z-depth-1 overflow-x">
+        <table className="bordered responsive-table">
+          <thead>
           <tr>
-            <td className="center-align"colSpan={props.columns && props.columns.length}>No rows inserted.</td>
+            {props.columns && props.columns.map((column, index) => {
+              return <th key={index}>{column.name}</th>
+            })}
           </tr>
-        }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+          {props.resultSet && props.resultSet.map((row, index) => {
+            return <TableRow row={row} key={index} index={index}/>
+          })}
+          {props.resultSet && !props.resultSet.length &&
+          <tr>
+            <td className="center-align" colSpan={props.columns && props.columns.length}>No rows inserted.</td>
+          </tr>
+          }
+          </tbody>
+        </table>
+      </div>
     )
   }
 }

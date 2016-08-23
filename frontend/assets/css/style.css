@@ -62,3 +62,7 @@ td {
 .btn.app-color:hover {
     background-color: #2B81AF;
 }
+
+.overflow-x {
+    overflow-x: scroll;
+}

@@ -19,6 +19,7 @@ class SqlEditor extends Component {
     let props = this.props;
     props.actions.executeQuery(this.refs.query.value, props.selectedDatabase);
   }
+  
   render() {
     return (
       <form className="sql-editor" onSubmit={this.executeQuery}>
