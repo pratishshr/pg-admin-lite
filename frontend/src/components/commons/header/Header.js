@@ -5,20 +5,30 @@
 
 import React, {Component} from 'react';
 
+/* Redux dependencies */
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
 /* Libraries */
 import {browserHistory} from 'react-router';
 
 /* Utils */
 import {storage} from '../../../utils';
 
+/* Actions */
+import {selectActions} from '../../../actions';
+
 class Header extends Component {
   constructor(props) {
     super(props);
+    this.signOut = this.signOut.bind(this);
   }
 
   signOut() {
     storage.clear();
-    browserHistory.push('/auth')
+    browserHistory.push('/auth');
+    this.props.actions.clearSelectedDatabase();
+    this.props.actions.clearSelectedTable();
   }
 
   render() {
@@ -38,4 +48,16 @@ class Header extends Component {
   }
 }
 
-export default Header;
+let mapStateToProps = (state) => {
+  return {
+    //NOTE: Add state here later if needed
+  }
+};
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(Object.assign({}, selectActions), dispatch)
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

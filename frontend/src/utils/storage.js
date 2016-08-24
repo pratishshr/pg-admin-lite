@@ -20,7 +20,7 @@ export function set(items) {
  * @param {String} key - Key of the item to get
  */
 export function get(key) {
-  localStorage.getItem(key);
+  return localStorage.getItem(key);
 }
 
 /**

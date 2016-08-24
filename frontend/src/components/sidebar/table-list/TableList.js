@@ -15,9 +15,9 @@ class TableList extends Component {
   render() {
     let props = this.props;
     let display = 'none';
-    
+
     /* Show submenu table list for only selected database */
-    if(props.selectedDatabase == props.dbName) {
+    if (props.selectedDatabase == props.dbName) {
       display = 'block';
     }
     return (
@@ -33,8 +33,8 @@ class TableList extends Component {
           }
 
           {/* If no relation is present display a "Not found" message  */}
-          {(props.tablesByDatabase.get(props.dbName) && (!props.tablesByDatabase.get(props.dbName).length))?
-            <li className="center-align">No relations found</li>: ''
+          {(props.tablesByDatabase.get(props.dbName) && (!props.tablesByDatabase.get(props.dbName).length)) ?
+            <li className="center-align">No relations found</li> : ''
           }
         </ul>
       </div>
