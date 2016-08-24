@@ -4,7 +4,7 @@
  */
 
 /* Utils */
-import {httpUtil} from '../util';
+import {httpUtil} from '../utils';
 
 export function executeQuery(query, databaseName) {
   return httpUtil.get(query, databaseName);

@@ -4,7 +4,7 @@
  */
 
 /* Utils */
-import {httpUtil} from '../util';
+import {httpUtil} from '../utils';
 
 export function fetchAll() {
   let query = `SELECT * FROM pg_database
