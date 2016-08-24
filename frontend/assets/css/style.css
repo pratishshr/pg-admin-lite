@@ -66,3 +66,83 @@ td {
 .overflow-x {
     overflow-x: scroll;
 }
+
+/* Tabs */
+.dynamic-tabs {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 48px;
+    background-color: #fff;
+    margin: 0 auto;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.dynamic-tabs .tab {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: block;
+    float: left;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    letter-spacing: .8px;
+    width: 15%;
+    min-width: 80px;
+}
+
+.dynamic-tabs .tab a {
+    color: #336791;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: color .28s ease;
+}
+
+.dynamic-tabs .tab a:hover {
+    color: #45a5e1;
+}
+
+.dynamic-tabs .tab.disabled a {
+    color: #ede0ce;
+    cursor: default;
+}
+
+.dynamic-tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #45a5e1;
+    will-change: left, right;
+}
+
+.dynamic-tabs .active {
+    border-bottom: 2px solid #336791;
+}
+
+.dynamic-tabs.disabled a {
+    pointer-events: none;
+    color: #ede0ce;
+    cursor: default;
+}
+
+.sidebar-menu li>a{
+    padding-left: 30px !important;
+}
+
+.menu-option {
+    padding: 0 15px;
+}

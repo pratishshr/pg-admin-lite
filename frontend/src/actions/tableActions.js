@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-//constants
+/* Constants */
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-//services
+/* Services */
 import {tableService} from '../services';
 
 export function requestTables() {
@@ -37,17 +37,32 @@ export function saveResultSet(tableName, data) {
   }
 }
 
-//async action creators
+/**
+ * Fetch all the tables from a database
+ * 
+ * @param databaseName
+ * @returns {Function}
+ */
 export function fetchTables(databaseName) {
-  return function(dispatch) {
+  return function (dispatch) {
     return tableService.fetchAll(databaseName).then((response) => {
       dispatch(listTables(databaseName, response.data.rows));
     })
   }
 }
 
+/**
+ * Select all from table;
+ *  1. Dispatch a "Request" action to know the async call has started.
+ *  2. Dipatch "Save" action to save the resultset.
+ *  3. Dispatch a "Response" action to know async call has ended.
+ *
+ * @param databaseName - Database to fetch data from
+ * @param tableName - Table to fetch from the database
+ * @returns {Function}
+ */
 export function selectAllFromTable(databaseName, tableName) {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(requestTables());
     return tableService.selectAllFromTable(databaseName, tableName).then((response) => {
       dispatch(saveResultSet(tableName, response.data));

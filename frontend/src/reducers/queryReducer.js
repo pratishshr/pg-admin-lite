@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-//constants
+/* Constants */
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-//libraries
+/* Libraries */
 import Immutable from 'immutable';
 
 let initialState = Immutable.Map({
@@ -15,7 +15,7 @@ let initialState = Immutable.Map({
 });
 
 export default function queryReducer(state = initialState, action) {
-  switch(action.type){
+  switch (action.type) {
     case actionTypeConstants.REQUEST_EXECUTE_QUERY:
       return state.set('isFetching', true);
 

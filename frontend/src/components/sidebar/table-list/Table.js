@@ -4,7 +4,7 @@
  */
 import React, {Component} from 'react';
 
-//services
+/* Services */
 import {databaseService} from '../../../services/databaseService';
 
 class TableList extends Component {

@@ -5,17 +5,15 @@
 
 import React, {Component} from 'react';
 
-//redux
+/* Redux dependencies */
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-//components
+/* Components */
 import SqlEditor from './SqlEditor';
-import Relations from '../relations';
-import Table from '../table';
 import QueryResult from './query-result';
 
-//actions
+/* Actions */
 import {tableActions, queryActions} from '../../actions';
 
 class SqlRunner extends Component {
@@ -27,41 +25,19 @@ class SqlRunner extends Component {
     let props = this.props;
 
     return (
-      <div className="col s12 m8 l9">
-        {/* if database is selected show queryEditor else show message */}
-        {(props.selectedDatabase) ?
-          <div className="container">
-            <h5>
-              <i className="fa fa-database" aria-hidden="true"></i>
-              <span className="margin-left-10">Database: {props.selectedDatabase}</span>
-            </h5>
-            <SqlEditor {...props}/>
-
-            {
-              /* show the result of the query with respect to the selected database */
-              (props.selectedDatabase === props.databaseNameOfQueryResult) ?
-                <QueryResult {...props}/>
-                :
-                ''
-            }
-
-            {
-              /* RELATIONS TABLE
-               * if table is not selected, show database relation
-               * else show table */
-            }
-            {(!props.selectedTable) ?
-              <Relations {...props}/>
-              :
-              <Table {...props}/>
-            }
-          </div>
-          :
-          <div className="container">
-            <h3>Select a database</h3>
-          </div>
+      <div>
+        <h5>
+          <i className="fa fa-database" aria-hidden="true"></i>
+          <span className="margin-left-10">Database: {props.selectedDatabase}</span>
+        </h5>
+        <SqlEditor {...props}/>
+        {
+          /* Show the result of the query with respect to the selected database */
+          (props.selectedDatabase === props.databaseNameOfQueryResult) ?
+            <QueryResult {...props}/>
+            :
+            null
         }
-
       </div>
     )
   }
@@ -69,15 +45,15 @@ class SqlRunner extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    //selectReducer
+    /* selectReducer */
     selectedDatabase: state.selectReducer.get('selectedDatabase'),
     selectedTable: state.selectReducer.get('selectedTable'),
-    //tableReducer
+    /* tableReducer */
     tablesByDatabase: state.tableReducer.get('tablesByDatabase'),
     resultSet: state.tableReducer.get('resultSet'),
     isFetchingTables: state.tableReducer.get('isFetching'),
     fieldsByTable: state.tableReducer.get('fieldsByTable'),
-    //queryReducer
+    /* queryReducer */
     queryResponse: state.queryReducer.get('queryResponse'),
     isFetchingQueryResult: state.queryReducer.get('isFetching'),
     databaseNameOfQueryResult: state.queryReducer.get('databaseName')

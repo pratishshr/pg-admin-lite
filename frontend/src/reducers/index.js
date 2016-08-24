@@ -4,6 +4,8 @@
  */
 
 import {combineReducers} from 'redux';
+
+/* Reducers */
 import databaseReducer from './databaseReducer';
 import tableReducer from './tableReducer';
 import selectReducer from './selectReducer';

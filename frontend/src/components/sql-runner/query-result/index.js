@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-//components
+/* Components */
 import ResultSet from './ResultSet';
 import Spinner from '../../commons/spinner/Spinner';
 
@@ -15,7 +15,7 @@ class QueryResult extends Component {
     return (
       <div >
         <span className="table-title">Query Result</span>
-        {/* show spinner when it is fetching query data */}
+        {/* Show spinner when it is fetching query data */}
         {(!props.isFetchingQueryResponse) ?
           <ResultSet columns={props.queryResponse.fields} resultSet={props.queryResponse.rows}/>
           :

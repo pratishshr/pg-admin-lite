@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-//constants
+/* Constants */
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-//services
+/* Services */
 import {databaseService} from '../services';
 
 export function requestDatabase() {
@@ -28,7 +28,13 @@ export function listDatabases(databases) {
   }
 }
 
-//async action creators
+/**
+ *  1. Dispatch a "Request" action to know the async call has started.
+ *  2. Dipatch "List" action to list all the databases.
+ *  3. Dispatch a "Response" action to know async call has ended.
+ *
+ * @returns {Function}
+ */
 export function fetchDatabases() {
   return function (dispatch) {
     dispatch(requestDatabase());

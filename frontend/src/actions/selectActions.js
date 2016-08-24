@@ -3,7 +3,7 @@
  * on 8/3/16.
  */
 
-//constants
+/* Constants */
 import actionTypeConstants from '../constants/actionTypeConstants';
 
 export function selectDatabase(databaseName) {
@@ -12,7 +12,6 @@ export function selectDatabase(databaseName) {
     databaseName: databaseName
   }
 }
-
 
 export function selectTable(tableName) {
   return {

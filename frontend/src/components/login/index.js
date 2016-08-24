@@ -5,6 +5,12 @@
 
 import React, {Component} from 'react';
 
+/* Libraries */
+import {browserHistory} from 'react-router';
+
+/* Utils */
+import {storage} from '../../utils'
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -13,15 +19,11 @@ class Login extends Component {
 
   onSubmitForm(event) {
     event.preventDefault();
-    //NOTE: this is just a hack, as the sidebar submenus were not working
-    //TODO: fix this issue
-    window.location.reload();
 
-    localStorage.setItem('db-username', this.refs.username.value);
-    localStorage.setItem('db-password', this.refs.password.value);
-    this.props.changeLoggedInStatus(true);
-
-
+    /* Persist data to localStorage */
+    storage.set({'db-username': this.refs.username.value});
+    storage.set({'db-password': this.refs.password.value});
+    browserHistory.push('/');
   }
 
   render() {

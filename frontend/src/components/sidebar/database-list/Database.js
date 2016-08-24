@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
-//components
+/* Components */
 import TableList from '../table-list/TableList';
+
+/* Libraries */
+import {Link, browserHistory} from 'react-router';
 
 class Database extends Component {
   constructor(props) {
@@ -10,31 +13,51 @@ class Database extends Component {
       isOpen: false
     };
     this.selectDatabase = this.selectDatabase.bind(this);
+    this.isSelected = this.isSelected.bind(this);
+  }
+
+  componentDidMount() {
+    let props = this.props;
+    if (props.location.query.db == props.database.datname) {
+      this.selectDatabase();
+    }
+  }
+
+  isSelected() {
+    let props = this.props;
+    if (props.selectedDatabase == props.database.datname) {
+      return true;
+    }
+    return false;
   }
 
   selectDatabase() {
     let props = this.props;
-
-    // if the same database is clicked again, clear the selected state
-    // else fetch the tables and select the database
-    if (props.selectedDatabase !== props.database.datname) {
+    /* If the same database is clicked again, clear the selected state
+     * Else fetch the tables and select the database */
+    if (!this.isSelected()) {
       this.props.actions.fetchTables(this.props.database.datname);
       this.props.actions.selectDatabase(this.props.database.datname);
     } else {
       this.props.actions.clearSelectedDatabase();
       this.props.actions.clearSelectedTable();
+
+      /* Note: This is a hack as react router's Link event was calling after the browserHistory call */
+      setTimeout(() => {
+        browserHistory.push('/');
+      }, 1)
     }
   }
 
-
   render() {
     let props = this.props;
+
     return (
-      <li>
-        <a className="collapsible-header waves-effect" onClick={this.selectDatabase}>
+      <li className={(this.isSelected())?'active':''}>
+        <Link to={`/structure?db=${props.database.datname}`} className="waves-effect" onClick={this.selectDatabase}>
           <i className="fa fa-database" aria-hidden="true"></i>
           {props.database.datname}
-        </a>
+        </Link>
         <TableList dbName={props.database.datname} {...props}/>
       </li>
     )

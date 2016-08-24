@@ -4,20 +4,26 @@
  */
 import React, {Component} from 'react';
 
-//components
+/* Components */
 import Table from './Table';
 import Spinner from '../../commons/spinner/Spinner';
 
-//services
+/* Services */
 import {databaseService} from '../../../services/databaseService';
 
 class TableList extends Component {
   render() {
     let props = this.props;
+    let display = 'none';
+    
+    /* Show submenu table list for only selected database */
+    if(props.selectedDatabase == props.dbName) {
+      display = 'block';
+    }
     return (
-      <div className="collapsible-body">
-        <ul>
-          {/* show spinner when it is being fetched */}
+      <div style={{display: display}}>
+        <ul className="sidebar-menu">
+          {/* Show spinner when it is being fetched */}
           {(props.tablesByDatabase.get(props.dbName)) ?
             props.tablesByDatabase.get(props.dbName).map((table, index) => {
               return <Table table={table} key={index} {...props}/>
@@ -26,7 +32,7 @@ class TableList extends Component {
             <li className="center-align"><Spinner className="sidebar-spinner"/></li>
           }
 
-          {/*if no relation is present display a Not found message*/}
+          {/* If no relation is present display a "Not found" message  */}
           {(props.tablesByDatabase.get(props.dbName) && (!props.tablesByDatabase.get(props.dbName).length))?
             <li className="center-align">No relations found</li>: ''
           }

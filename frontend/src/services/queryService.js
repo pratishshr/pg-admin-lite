@@ -3,6 +3,7 @@
  * on 8/3/16.
  */
 
+/* Utils */
 import {httpUtil} from '../util';
 
 export function executeQuery(query, databaseName) {
