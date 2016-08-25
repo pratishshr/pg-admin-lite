@@ -5,10 +5,10 @@
 
 import React, {Component} from 'react';
 
-/* Libraries */
+// Libraries
 import {browserHistory} from 'react-router';
 
-/* Utils */
+// Utils
 import {storage} from '../../utils'
 
 class Login extends Component {
@@ -20,7 +20,7 @@ class Login extends Component {
   onSubmitForm(event) {
     event.preventDefault();
 
-    /* Persist data to localStorage */
+    // Persist data to localStorage 
     storage.set({'db-username': this.refs.username.value});
     storage.set({'db-password': this.refs.password.value});
     browserHistory.push('/');

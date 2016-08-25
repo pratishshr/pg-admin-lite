@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-/* Components */
+// Components 
 import ResultSet from './ResultSet';
 import Spinner from '../../commons/spinner/Spinner';
 

@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-/* Constants */
+// Constants
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-/* Services */
+// Services
 import {databaseService} from '../services';
 
 export function requestDatabase() {

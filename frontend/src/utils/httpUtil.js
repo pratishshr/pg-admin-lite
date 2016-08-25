@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-/* Libraries */
+// Libraries
 import axios from 'axios';
 
-/* Utils */
+// Utils 
 import * as storage from './storage';
 
 const API_PATH = 'http://localhost:1234/api';
@@ -16,7 +16,7 @@ const SQL_RESOURCE = API_PATH + '/query';
  * Perfoms a GET request to the server
  *
  * @param {String} query - SQL query to be executed
- * @param {String} [dbName = ''] - Name of the database to run query on
+ * @param {String} [dbName = ''] - Name of the database to run the query on
  * @returns {Promise}
  */
 export function get(query, dbName = '') {

@@ -4,11 +4,11 @@
  */
 import React, {Component} from 'react';
 
-/* Components */
+// Components
 import Table from './Table';
 import Spinner from '../../commons/spinner/Spinner';
 
-/* Services */
+// Services 
 import {databaseService} from '../../../services/databaseService';
 
 class TableList extends Component {
@@ -16,7 +16,7 @@ class TableList extends Component {
     let props = this.props;
     let display = 'none';
 
-    /* Show submenu table list for only selected database */
+    // Show submenu table list for only selected database
     if (props.selectedDatabase == props.dbName) {
       display = 'block';
     }

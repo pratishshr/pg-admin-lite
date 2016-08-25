@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-/* Components */
+// Components 
 import TableRow from './TableRow';
 
 class TableList extends Component {

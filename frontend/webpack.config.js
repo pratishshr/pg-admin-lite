@@ -5,8 +5,8 @@
 
 var webpack = require('webpack');
 
-//plugins
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+// Plugins
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -18,13 +18,13 @@ module.exports = {
     path: __dirname + '/dist',
     publicPath: '/dist',
     filename: 'bundle.js',
-    chunkFilename: "[id].js"
+    chunkFilename: '[id].js'
   },
   module: {
     loaders: [
-      {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
-      {test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel-loader"]},
-      {test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader : 'file-loader', query: {name: 'fonts/[name].[ext]'}},
+      {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader']},
+      {test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader : 'file-loader', query: {name: 'fonts/[name].[ext]'}}
     ]
   },
   devtool: 'eval-source-map',
@@ -35,6 +35,6 @@ module.exports = {
     port: 8080
   },
   plugins: [
-    new ExtractTextPlugin("bundle.css")
+    new ExtractTextPlugin('bundle.css')
   ]
 };

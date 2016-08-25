@@ -3,7 +3,7 @@
  * on 8/2/16.
  */
 
-/* Assets */
+// Assets
 require('../assets/css/font-awesome.min.css');
 require('../assets/css/style.css');
 
@@ -15,7 +15,6 @@ import {Provider} from 'react-redux';
 
 const store = configureStore();
 
-import App from './components/App';
 import routes from './routes';
 
 ReactDOM.render(

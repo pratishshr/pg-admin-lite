@@ -5,15 +5,15 @@
 
 import React, {Component} from 'react';
 
-/* Redux dependencies */
+// Redux dependencies
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-/* Components */
+// Components 
 import SqlEditor from './SqlEditor';
 import QueryResult from './query-result';
 
-/* Actions */
+// Actions 
 import {tableActions, queryActions} from '../../actions';
 
 class SqlRunner extends Component {
@@ -45,15 +45,15 @@ class SqlRunner extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    /* selectReducer */
+    // selectReducer 
     selectedDatabase: state.selectReducer.get('selectedDatabase'),
     selectedTable: state.selectReducer.get('selectedTable'),
-    /* tableReducer */
+    // tableReducer 
     tablesByDatabase: state.tableReducer.get('tablesByDatabase'),
     resultSet: state.tableReducer.get('resultSet'),
     isFetchingTables: state.tableReducer.get('isFetching'),
     fieldsByTable: state.tableReducer.get('fieldsByTable'),
-    /* queryReducer */
+    // queryReducer 
     queryResponse: state.queryReducer.get('queryResponse'),
     isFetchingQueryResult: state.queryReducer.get('isFetching'),
     databaseNameOfQueryResult: state.queryReducer.get('databaseName')

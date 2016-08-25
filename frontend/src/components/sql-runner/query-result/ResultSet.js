@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-/* Components */
+// Components 
 import ResultSetRow from './ResultSetRow';
 
 class ResultSet extends Component {

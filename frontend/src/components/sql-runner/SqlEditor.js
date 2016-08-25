@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-/* libraries */
+// Libraries
 import {browserHistory} from 'react-router';
 
 class SqlEditor extends Component {
@@ -18,7 +18,7 @@ class SqlEditor extends Component {
   componentDidMount() {
     let props = this.props;
 
-    /* Check for query in the url */
+    // Check for query in the url
     if (props.location.query.query) {
       this.refs.query.value = props.location.query.query;
       this.executeQuery();
@@ -31,12 +31,12 @@ class SqlEditor extends Component {
     let database = props.selectedDatabase || props.location.query.db;
     props.actions.executeQuery(this.refs.query.value, database);
 
-    /* Store query in the url */
+    // Store query in the url
     browserHistory.push(`/sql?db=${database}&query=${this.refs.query.value}`);
   }
 
   checkCtrlEnter(e) {
-    /* Check for ctrl and command enter */
+    // Check for ctrl and command enter
     if ((e.ctrlKey || e.metaKey) && e.keyCode == 13) {
       this.executeQuery();
     }

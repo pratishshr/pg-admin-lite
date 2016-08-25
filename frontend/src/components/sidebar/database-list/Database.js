@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-/* Components */
+// Components 
 import TableList from '../table-list/TableList';
 
-/* Libraries */
+// Libraries 
 import {Link, browserHistory} from 'react-router';
 
 class Database extends Component {
@@ -33,8 +33,8 @@ class Database extends Component {
 
   selectDatabase() {
     let props = this.props;
-    /* If the same database is clicked again, clear the selected state
-     * Else fetch the tables and select the database */
+    // If the same database is clicked again, clear the selected state
+    // Else fetch the tables and select the database 
     if (!this.isSelected()) {
       this.props.actions.fetchTables(this.props.database.datname);
       this.props.actions.selectDatabase(this.props.database.datname);
@@ -42,7 +42,7 @@ class Database extends Component {
       this.props.actions.clearSelectedDatabase();
       this.props.actions.clearSelectedTable();
 
-      /* Note: This is a hack as react router's Link event was calling after the browserHistory call */
+      // FIXME: This is a hack, as react router's Link event was being called after the browserHistory call 
       setTimeout(() => {
         browserHistory.push('/');
       }, 1)

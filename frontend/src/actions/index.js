@@ -8,7 +8,7 @@ import * as tableActions from './tableActions';
 import * as selectActions from './selectActions';
 import * as queryActions from './queryActions';
 
-/* Single point of export for all actions */
+// Single point of export for all actions
 export {
   databaseActions,
   tableActions,

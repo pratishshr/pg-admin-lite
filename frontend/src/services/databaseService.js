@@ -3,7 +3,7 @@
  * on 8/3/16.
  */
 
-/* Utils */
+// Utils 
 import {httpUtil} from '../utils';
 
 export function fetchAll() {

@@ -3,13 +3,13 @@
  * on 8/3/16.
  */
 
-/* Constants */
+// Constants
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-/* Services */
+// Services
 import {queryService} from '../services';
 
-/* Actions */
+// Actions
 import * as tableActions from './tableActions';
 
 export function requestExecuteQuery() {
@@ -80,7 +80,7 @@ function _handleQueryResponse(dispatch, databaseName, response) {
       break;
 
     default:
-      /* TODO: Handle it properly  */
+      // TODO: Handle it properly 
       console.log(response.command);
   }
 }

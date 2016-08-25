@@ -5,10 +5,10 @@
 
 import React, {Component} from 'react';
 
-/* Libraries */
+// Libraries
 import {Link} from 'react-router';
 
-/* Redux dependencies */
+// Redux dependencies 
 import {connect} from 'react-redux';
 
 class TabBar extends Component {
@@ -34,7 +34,7 @@ class TabBar extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    /* selectReducer */
+    // selectReducer
     selectedDatabase: state.selectReducer.get('selectedDatabase')
   }
 };

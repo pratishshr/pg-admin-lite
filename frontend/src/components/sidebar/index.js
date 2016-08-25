@@ -5,14 +5,14 @@
 
 import React, {Component} from 'react';
 
-/* Redux dependencies */
+// Redux dependencies
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-/* Components */
+// Components
 import DatabaseList from './database-list/DatabaseList';
 
-/* Actions */
+// Actions 
 import {databaseActions, tableActions, selectActions} from '../../actions';
 
 class Sidebar extends Component {
@@ -40,11 +40,11 @@ class Sidebar extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    /* databaseReducer */
+    // databaseReducer 
     databases: state.databaseReducer.get('databases') || [],
-    /* tableReducer */
+    // tableReducer 
     tablesByDatabase: state.tableReducer.get('tablesByDatabase'),
-    /* selectReducer */
+    // selectReducer 
     selectedDatabase: state.selectReducer.get('selectedDatabase'),
     selectedTable: state.selectReducer.get('selectedTable')
   }

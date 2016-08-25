@@ -5,17 +5,17 @@
 
 import React, {Component} from 'react';
 
-/* Redux dependencies */
+// Redux dependencies
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-/* Libraries */
+// Libraries
 import {browserHistory} from 'react-router';
 
-/* Utils */
+// Utils 
 import {storage} from '../../../utils';
 
-/* Actions */
+// Actions
 import {selectActions} from '../../../actions';
 
 class Header extends Component {
@@ -50,7 +50,7 @@ class Header extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    //NOTE: Add state here later if needed
+    // NOTE: Add state here later if needed
   }
 };
 

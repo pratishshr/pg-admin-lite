@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-/* Components */
+// Components 
 import TableList from './TableList';
 import Spinner from '../commons/spinner/Spinner';
 

@@ -3,7 +3,7 @@
  * on 8/3/16.
  */
 
-/* Constants */
+// Constants
 import actionTypeConstants from '../constants/actionTypeConstants';
 
 export function selectDatabase(databaseName) {

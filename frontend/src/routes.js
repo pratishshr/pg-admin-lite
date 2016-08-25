@@ -5,10 +5,10 @@
 
 import React from 'react';
 
-/* Libraries */
+// Libraries
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
-/* Components */
+// Components 
 import App from './components/App'
 import Dashboard from './components/dashboard';
 import Structure from './components/structure';
@@ -16,7 +16,7 @@ import SqlRunner from './components/sql-runner';
 import Login from './components/login/';
 
 let checkAuth = (nextState, transition) => {
-  /* Transition to auth if no username or password is set */
+  // Transition to auth if no username or password is set 
   if (!localStorage.getItem('db-username') || !localStorage.getItem('db-password')) {
     transition('/auth');
   }

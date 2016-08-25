@@ -5,7 +5,7 @@
 
 import React, {Component} from 'react';
 
-/* Components */
+// Components 
 import Sidebar from './sidebar';
 import TabBar from './commons/tabbar/TabBar';
 import Header from './commons/header/Header';

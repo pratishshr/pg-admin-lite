@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-/* Constants */
+// Constants
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-/* Services */
+// Services
 import {tableService} from '../services';
 
 export function requestTables() {

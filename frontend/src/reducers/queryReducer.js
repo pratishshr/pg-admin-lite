@@ -3,10 +3,10 @@
  * on 8/3/16.
  */
 
-/* Constants */
+// Constants 
 import actionTypeConstants from '../constants/actionTypeConstants';
 
-/* Libraries */
+// Libraries 
 import Immutable from 'immutable';
 
 let initialState = Immutable.Map({
