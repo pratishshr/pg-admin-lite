@@ -139,10 +139,15 @@ td {
     cursor: default;
 }
 
-.sidebar-menu li>a{
+.sidebar-menu li > a {
     padding-left: 30px !important;
 }
 
 .menu-option {
     padding: 0 15px;
+}
+
+.materialize-textarea.height-120 {
+    height: 120px !important;
+overflow: scroll;
 }

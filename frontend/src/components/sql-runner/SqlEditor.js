@@ -48,7 +48,7 @@ class SqlEditor extends Component {
         <div>
           <div className="input-field col s12 z-depth-1">
             <textarea ref="query" id="textarea1"
-                      className="materialize-textarea"
+                      className="materialize-textarea height-120"
                       onKeyDown={this.checkCtrlEnter}>
             </textarea>
           </div>

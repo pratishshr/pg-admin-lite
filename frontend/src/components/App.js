@@ -22,7 +22,7 @@ class App extends Component {
           <div className="row">
             <Header/>
             <Sidebar {...this.props}/>
-            <div className="col s12 m8 l9">
+            <div className="col s12 m12 l9 offset-l3">
               <TabBar/>
               {this.props.children}
             </div>

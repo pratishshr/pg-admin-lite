@@ -26,14 +26,12 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className="col s12 m2 l3">
-        <ul id="slide-out" className="side-nav fixed">
-          <li><h2 className="center-align">Pg-Admin</h2></li>
-          <li className="no-padding">
-            <DatabaseList databases={this.props.databases} {...this.props}/>
-          </li>
-        </ul>
-      </div>
+      <ul id="slide-out" className="side-nav fixed">
+        <li><h2 className="center-align">Pg-Admin</h2></li>
+        <li className="no-padding">
+          <DatabaseList databases={this.props.databases} {...this.props}/>
+        </li>
+      </ul>
     )
   }
 }

@@ -34,7 +34,7 @@ class TabBar extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    // selectReducer
+    /* selectReducer */
     selectedDatabase: state.selectReducer.get('selectedDatabase')
   }
 };
