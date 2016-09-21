@@ -8,6 +8,9 @@ import React, {Component} from 'react';
 // Libraries
 import {browserHistory} from 'react-router';
 
+// Services
+import {queryService} from '../../services';
+
 class SqlEditor extends Component {
   constructor(props) {
     super(props);
@@ -29,10 +32,11 @@ class SqlEditor extends Component {
     if (event) event.preventDefault();
     let props = this.props;
     let database = props.selectedDatabase || props.location.query.db;
-    props.actions.executeQuery(this.refs.query.value, database);
+    let query = queryService.sanitizeQuery(this.refs.query.value);
+    props.actions.executeQuery(query, database);
 
     // Store query in the url
-    browserHistory.push(`/sql?db=${database}&query=${this.refs.query.value}`);
+    browserHistory.push(`/sql?db=${database}&query=${query}`);
   }
 
   checkCtrlEnter(e) {

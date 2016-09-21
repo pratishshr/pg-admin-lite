@@ -27,7 +27,12 @@ class Sidebar extends Component {
   render() {
     return (
       <ul id="slide-out" className="side-nav fixed">
-        <li><h2 className="center-align">Pg-Admin</h2></li>
+        <li>
+          <div className="logo-wrapper valign-wrapper">
+            <img src="../../assets/img/logo.png" className="logo"/>
+            <span className="valign center-align logo-title">pg-Admin</span>
+          </div>
+        </li>
         <li className="no-padding">
           <DatabaseList databases={this.props.databases} {...this.props}/>
         </li>

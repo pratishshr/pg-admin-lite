@@ -11,7 +11,7 @@ import {bindActionCreators} from 'redux';
 
 // Components 
 import SqlEditor from './SqlEditor';
-import QueryResult from './query-result';
+import Table from '../table';
 
 // Actions 
 import {tableActions, queryActions} from '../../actions';
@@ -32,9 +32,11 @@ class SqlRunner extends Component {
         </h5>
         <SqlEditor {...props}/>
         {
-          /* Show the result of the query with respect to the selected database */
+          /* Show the Result of the Query with Respect to the Selected Database */
           (props.selectedDatabase === props.databaseNameOfQueryResult) ?
-            <QueryResult {...props}/>
+            <Table isFetching={props.isFetchingQueryResult}
+                   columns={props.queryResponse.fields}
+                   resultSet={props.queryResponse.rows}/>
             :
             null
         }

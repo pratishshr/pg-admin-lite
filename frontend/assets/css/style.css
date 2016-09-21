@@ -149,5 +149,35 @@ td {
 
 .materialize-textarea.height-120 {
     height: 120px !important;
-overflow: scroll;
+    overflow: scroll;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.side-nav.fixed .active-db {
+    background: #326690;
+}
+
+.side-nav.fixed .active-db>a, .side-nav.fixed .active-db>a>i {
+    color: #fff;
+}
+
+.pagination li.active {
+    background-color: #326690;
+}
+
+.logo {
+    width: 50px;
+}
+
+.logo-wrapper {
+    height: 100px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.logo-title {
+    margin: 0 10px;
 }

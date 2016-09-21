@@ -3,7 +3,7 @@
  * on 8/3/16.
  */
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 // Components 
 import TableRow from './TableRow';
@@ -36,5 +36,10 @@ class TableList extends Component {
     )
   }
 }
+
+TableList.propTypes = {
+  columns: PropTypes.array,
+  resultSet: PropTypes.array
+};
 
 export default TableList;

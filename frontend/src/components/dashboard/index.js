@@ -9,7 +9,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Select a database</h3>
       </div>
     )
   }

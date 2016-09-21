@@ -21,7 +21,7 @@ class TableList extends Component {
       display = 'block';
     }
     return (
-      <div style={{display: display}}>
+      <div className="bg-white" style={{display: display}}>
         <ul className="sidebar-menu">
           {/* Show spinner when it is being fetched */}
           {(props.tablesByDatabase.get(props.dbName)) ?
@@ -34,7 +34,7 @@ class TableList extends Component {
 
           {/* If no relation is present display a "Not found" message  */}
           {(props.tablesByDatabase.get(props.dbName) && (!props.tablesByDatabase.get(props.dbName).length)) ?
-            <li className="center-align">No relations found</li> : ''
+            <li className="center-align">No relations found</li> : null
           }
         </ul>
       </div>

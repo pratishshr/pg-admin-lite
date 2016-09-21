@@ -48,6 +48,7 @@ export function executeQuery(query, databaseName) {
       _handleQueryResponse(dispatch, databaseName, response);
       dispatch(responseExecuteQuery());
     }).catch((response) => {
+      dispatch(responseExecuteQuery());
       Materialize.toast('ERROR: Please check the query', 5000, 'rounded');
     });
   }

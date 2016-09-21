@@ -12,8 +12,7 @@ import Immutable from 'immutable';
 let initialState = Immutable.Map({
   isFetching: false,
   tablesByDatabase: Immutable.Map({}),
-  fieldsByTable: Immutable.Map({}),
-  resultSet: []
+  tableQueryResponse: {}
 });
 
 export default function databaseReducer(state = initialState, action) {
@@ -28,8 +27,7 @@ export default function databaseReducer(state = initialState, action) {
       return state.setIn(['tablesByDatabase', action.dbName], action.data);
 
     case actionTypeConstants.SAVE_RESULT_SET:
-      return state.set('resultSet', action.data.rows)
-                  .setIn(['fieldsByTable', action.tableName], action.data.fields);
+      return state.set('tableQueryResponse', action.data);
 
     default:
       return state;

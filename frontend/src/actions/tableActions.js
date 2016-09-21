@@ -29,7 +29,7 @@ export function listTables(dbName, tables) {
   }
 }
 
-export function saveResultSet(tableName, data) {
+export function saveTableQueryResponse(tableName, data) {
   return {
     type: actionTypeConstants.SAVE_RESULT_SET,
     tableName: tableName,
@@ -65,7 +65,7 @@ export function selectAllFromTable(databaseName, tableName) {
   return function (dispatch) {
     dispatch(requestTables());
     return tableService.selectAllFromTable(databaseName, tableName).then((response) => {
-      dispatch(saveResultSet(tableName, response.data));
+      dispatch(saveTableQueryResponse(tableName, response.data));
       dispatch(responseTables());
     });
   }

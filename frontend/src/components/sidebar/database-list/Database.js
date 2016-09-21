@@ -33,8 +33,8 @@ class Database extends Component {
 
   selectDatabase() {
     let props = this.props;
-    // If the same database is clicked again, clear the selected state
-    // Else fetch the tables and select the database 
+    // If the Same Database is Clicked Again, Clear the Selected State
+    // Else Fetch the Tables and Select the Database
     if (!this.isSelected()) {
       this.props.actions.fetchTables(this.props.database.datname);
       this.props.actions.selectDatabase(this.props.database.datname);
@@ -42,7 +42,7 @@ class Database extends Component {
       this.props.actions.clearSelectedDatabase();
       this.props.actions.clearSelectedTable();
 
-      // FIXME: This is a hack, as react router's Link event was being called after the browserHistory call 
+      // FIXME: This is a Hack, as React Router's Link Event was Being Called After the BrowserHistory Call
       setTimeout(() => {
         browserHistory.push('/');
       }, 1)
@@ -53,8 +53,8 @@ class Database extends Component {
     let props = this.props;
 
     return (
-      <li className={(this.isSelected())?'active':''}>
-        <Link to={`/structure?db=${props.database.datname}`} className="waves-effect" onClick={this.selectDatabase}>
+      <li className={(this.isSelected())?'active-db':''}>
+        <Link to={`/structure?db=${props.database.datname}`} onClick={this.selectDatabase}>
           <i className="fa fa-database" aria-hidden="true"></i>
           {props.database.datname}
         </Link>
